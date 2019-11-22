@@ -3,17 +3,17 @@
   git "https://github.com/qualitykiosktta/Atlas_Demo"
   }
   stage('DEV'){
- 	dir(""){
+ 	dir("/Atlas_Demo"){
  	    sh "mvn clean install"
  	}
   }
   stage('QA'){
-   	dir(""){
+   	dir("/Atlas_Demo"){
  	    sh "mvn clean install"
  	}
   }
   stage('UAT'){
-  	dir(""){
+  	dir("/Atlas_Demo"){
  	    sh "mvn clean install"
  	}
   }
