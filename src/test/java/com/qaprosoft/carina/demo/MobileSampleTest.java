@@ -60,7 +60,7 @@ public class MobileSampleTest extends AbstractTest {
 			propName = "Samsung_Galaxy_J7_Prime.properties";
 		}
 		else{
-			propName = "Samsung_Galaxy_J8.properties";
+			propName = "Samsung_Galaxy_Note_8.properties";
 		}
 		return propName;
 	}
