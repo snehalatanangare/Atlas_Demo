@@ -1,8 +1,16 @@
 node {
-stage (‘SCM checkout’){
+stage (‘GIT’){
 git “https://github.com/qualitykiosktta/Atlas_Demo”
 }
 stage (‘DEV’){
+dir(“comtest”) {
+sh “mvn clean install”
+}
+stage (‘QA’){
+dir(“comtest”) {
+sh “mvn clean install”
+}
+stage (‘UAT’){
 dir(“comtest”) {
 sh “mvn clean install”
 }
