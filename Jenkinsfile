@@ -1,17 +1,46 @@
-  node {
-  stage('GIT'){
-  git "https://github.com/qualitykiosktta/Atlas_Demo"
-  }
-  stage('DEV'){
-  sh "clean install"
-  }
-  stage('QA'){
-  sh "clean install"
-  }
-  stage('UAT'){
-  sh "clean install"
-  }
-  dir("/target") {
-  sh "java -jar carina-demo-1.0.jar"
-  }
-  }
+  pipeline {
+    agent any
+    tools {
+        maven 'Maven 3.3.9'
+        jdk 'jdk8'
+    }
+    stages {
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
+            }
+        }
+
+        stage ('DEV') {
+            steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            }
+            post {
+                success {
+                    stage('QA') {
+						steps{
+	                      sh 'mvn -Dmaven.test.failure.ignore=true install' 
+                      }
+                      post{
+                          success {
+                              stage('UAT'){
+                                  steps{
+                                      sh 'mvn -Dmaven.test.failure.ignore=true install'
+                                  }
+
+                              }
+
+                          }
+
+                      }
+
+                    }
+
+                }
+            }
+        }
+    }
+}
