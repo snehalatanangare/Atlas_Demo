@@ -4,17 +4,17 @@
   }
   stage('DEV'){
  	dir("/Atlas_Demo"){
- 	    sh "mvn clean install"
+ 	    sh "mvn test -DsuiteXmlFile=/src/test/resources/testng_suites/android.xml"
  	}
   }
   stage('QA'){
    	dir("/Atlas_Demo"){
- 	    sh "mvn clean install"
+   	    sh "mvn test -DsuiteXmlFile=/src/test/resources/testng_suites/android.xml"
  	}
   }
   stage('UAT'){
   	dir("/Atlas_Demo"){
- 	    sh "mvn clean install"
+   	    sh "mvn test -DsuiteXmlFile=/src/test/resources/testng_suites/android.xml"
  	}
   }
  // dir("/target") {
