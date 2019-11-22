@@ -18,29 +18,16 @@
             steps {
                 sh 'mvn -Dmaven.test.failure.ignore=true install' 
             }
-            post {
-                success {
-                    stage('QA') {
-						steps{
-	                      sh 'mvn -Dmaven.test.failure.ignore=true install' 
-                      }
-                      post{
-                          success {
-                              stage('UAT'){
-                                  steps{
-                                      sh 'mvn -Dmaven.test.failure.ignore=true install'
-                                  }
-
-                              }
-
-                          }
-
-                      }
-
-                    }
-
-                }
             }
-        }
-    }
+        stage('QA') {
+			steps{
+	             sh 'mvn -Dmaven.test.failure.ignore=true install' 
+             }
+             }            
+        stage('UAT'){
+            steps{
+                 sh 'mvn -Dmaven.test.failure.ignore=true install'
+             }
+			}
+}
 }
