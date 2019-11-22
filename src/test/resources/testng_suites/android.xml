@@ -21,7 +21,9 @@
 	<parameter name="jenkinsJobExecutionOrder" value="1" />
 	<parameter name="jenkinsJobExecutionMode" value="continue" />
 	<parameter name="auto_screenshot" value="false" />
-
+	
+	<parameter name="jenkinsJobEnvironment" value="DEPLOY_ENV" />
+	
 	<test name="Mobile test">
 		<classes>
 			<class name="com.qaprosoft.carina.demo.MobileSampleTest" />

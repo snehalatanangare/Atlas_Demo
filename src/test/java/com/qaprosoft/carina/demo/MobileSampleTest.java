@@ -1,11 +1,16 @@
 package com.qaprosoft.carina.demo;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.Properties;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
@@ -26,26 +31,51 @@ import com.qaprosoft.carina.demo.utils.MobileContextUtils.View;
 
 public class MobileSampleTest extends AbstractTest {
 
-	@BeforeMethod
-	public void setCustCaps(){
+	//@BeforeMethod
+	public void setCustCaps(String jenkinsJobEnvironment) throws Exception{
+		String propFile = propertiesFile(jenkinsJobEnvironment);
+		
+		String path = "src/main/resources/m1Cloud/android/"+propFile;
+		Properties prop = new Properties();
+		InputStream input = new FileInputStream(path);
+		prop.load(input);
+		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("Capability_Username","sushem.bhagat@qualitykiosk.com");
-		capabilities.setCapability("Capability_ApiKey","s5w896dptxmy7qr239ypdn73");
-		capabilities.setCapability("Capability_ApplicationName", "carinademoexample.apk");
-		capabilities.setCapability("Capability_DurationInMinutes", 60);
-		capabilities.setCapability("Capability_DeviceFullName","Samsung_GalaxyJ6_Android_9.0.0");
-		capabilities.setCapability("deviceType","phone");
-		capabilities.setCapability("platformName","ANDROID");
-		capabilities.setCapability("automationName","uiautomator2");
-		capabilities.setCapability("appActivity","com.solvd.carinademoapplication.ActivitySplash");
-		capabilities.setCapability("appPackage","com.solvd.carinademoapplication");
-		R.CONFIG.getProperties().setProperty("deviceName", "Samsung_GalaxyJ6_Android_9.0.0");
+		capabilities.setCapability("Capability_Username",prop.getProperty("Capability_Username"));
+		capabilities.setCapability("Capability_ApiKey",prop.getProperty("Capability_ApiKey"));
+		capabilities.setCapability("Capability_ApplicationName", prop.getProperty("Capability_ApplicationName"));
+		capabilities.setCapability("Capability_DurationInMinutes", prop.getProperty("Capability_DurationInMinutes"));
+		capabilities.setCapability("Capability_DeviceFullName",prop.getProperty("Capability_DeviceFullName"));
+		capabilities.setCapability("deviceType",prop.getProperty("deviceType"));
+		capabilities.setCapability("platformName",prop.getProperty("platformName"));
+		capabilities.setCapability("automationName",prop.getProperty("automationName"));
+		capabilities.setCapability("appActivity",prop.getProperty("appActivity"));
+		capabilities.setCapability("appPackage",prop.getProperty("appPackage"));
+		R.CONFIG.getProperties().setProperty("deviceName", prop.getProperty("Capability_DeviceFullName"));
+		
 		getDriver("default", capabilities, R.CONFIG.get("selenium_host"));
+	}
+	
+	public String propertiesFile(String jenkinsJobEnvironment){
+		String propName = null;
+		
+		if(jenkinsJobEnvironment.equals("DEV")){
+			propName = "Samsung_Galaxy_J5_Prime.properties";
+		}
+		else if(jenkinsJobEnvironment.equals("QA")){
+			propName = "Samsung_Galaxy_J7_Prime.properties";
+		}
+		else{
+			propName = "Samsung_Galaxy_J8.properties";
+		}
+		return propName;
 	}
 	
     @Test(description = "JIRA#DEMO-0011")
     @MethodOwner(owner = "qpsdemo")
-    public void testLoginUser() {
+    @Parameters(value={"jenkinsJobEnvironment"})
+    public void testLoginUser(String jenkinsJobEnvironment) throws Exception {
+    	setCustCaps(jenkinsJobEnvironment);
     	setApplicationPath();
         String username = "Test user";
         String password = RandomStringUtils.randomAlphabetic(10);
