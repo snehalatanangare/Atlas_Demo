@@ -4,17 +4,17 @@
   }
   stage('DEV'){
  	//dir("/Atlas_Demo"){
- 	    sh "mvn clean test -DSTAGE_NAME=DEV"
+ 	    sh "mvn clean test -DstageName=DEV"
  	//}
   }
   stage('QA'){
    	//dir("/Atlas_Demo"){
-   	    sh "mvn clean test -DSTAGE_NAME=QA"
+   	    sh "mvn clean test -DstageName=QA"
  	//}
   }
   stage('UAT'){
   	//dir("/Atlas_Demo"){
-   	    sh "mvn clean test -DSTAGE_NAME=UAT"
+   	    sh "mvn clean test -DstageName=UAT"
  	//}
   }
   }

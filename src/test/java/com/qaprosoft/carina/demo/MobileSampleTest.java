@@ -50,7 +50,7 @@ public class MobileSampleTest extends AbstractTest {
 	}
 	
 	public String propertiesFile(String jenkinsJobEnvironment){
-		System.out.println(System.getProperty("STAGE_NAME"));
+		System.out.println(System.getProperty("stageName"));
 		String propName = null;
 		
 		if(jenkinsJobEnvironment.equals("DEV")){
