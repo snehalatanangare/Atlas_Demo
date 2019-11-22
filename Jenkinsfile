@@ -4,20 +4,17 @@
   }
   stage('DEV'){
  	//dir("/Atlas_Demo"){
- 	    sh "mvn clean test"
+ 	    sh "mvn clean test -DSTAGE_NAME=DEV"
  	//}
   }
   stage('QA'){
    	//dir("/Atlas_Demo"){
-   	    sh "mvn clean test"
+   	    sh "mvn clean test -DSTAGE_NAME=QA"
  	//}
   }
   stage('UAT'){
   	//dir("/Atlas_Demo"){
-   	    sh "mvn clean test"
+   	    sh "mvn clean test -DSTAGE_NAME=UAT"
  	//}
   }
- // dir("/target") {
- // sh "java -jar carina-demo-1.0.jar"
- // }
   }

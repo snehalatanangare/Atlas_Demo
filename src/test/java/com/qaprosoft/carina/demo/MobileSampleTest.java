@@ -50,6 +50,7 @@ public class MobileSampleTest extends AbstractTest {
 	}
 	
 	public String propertiesFile(String jenkinsJobEnvironment){
+		System.out.println(System.getProperty("STAGE_NAME"));
 		String propName = null;
 		
 		if(jenkinsJobEnvironment.equals("DEV")){
@@ -59,15 +60,14 @@ public class MobileSampleTest extends AbstractTest {
 			propName = "Samsung_Galaxy_J7_Prime.properties";
 		}
 		else{
-		//	propName = "Samsung_Galaxy_J8.properties";
-			propName = "Samsung_Galaxy_J7_Prime.properties";
+			propName = "Samsung_Galaxy_J8.properties";
 		}
 		return propName;
 	}
 	
     @Test(description = "JIRA#DEMO-0011")
     @MethodOwner(owner = "qpsdemo")
-    @Parameters(value={"jenkinsJobEnvironment"})
+    @Parameters(value={"stageName"})
     public void testLoginUser(String jenkinsJobEnvironment) throws Exception {
     	setCustCaps(jenkinsJobEnvironment);
     	setApplicationPath();

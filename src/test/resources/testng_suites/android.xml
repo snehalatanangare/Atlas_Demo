@@ -22,7 +22,7 @@
 	<parameter name="jenkinsJobExecutionMode" value="continue" />
 	<parameter name="auto_screenshot" value="false" />
 	
-	<parameter name="jenkinsJobEnvironment" value="DEPLOY_ENV" />
+	<parameter name="jenkinsJobEnvironment" value="STAGE_NAME" />
 	
 	<test name="Mobile test">
 		<classes>
