@@ -8,6 +8,7 @@ import java.util.Properties;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -52,7 +53,7 @@ public class MobileSampleTest extends AbstractTest {
 	public String propertiesFile(String jenkinsJobEnvironment){
 		System.out.println(System.getProperty("stageName"));
 		String propName = null;
-		
+
 		if(jenkinsJobEnvironment.equals("DEV")){
 			propName = "Samsung_Galaxy_J5_Prime.properties";
 		}
@@ -67,9 +68,9 @@ public class MobileSampleTest extends AbstractTest {
 	
     @Test(description = "JIRA#DEMO-0011")
     @MethodOwner(owner = "qpsdemo")
-    @Parameters(value={"stageName"})
-    public void testLoginUser(String jenkinsJobEnvironment) throws Exception {
-    	setCustCaps(jenkinsJobEnvironment);
+    //@Parameters(value={"stageName"})
+    public void testLoginUser() throws Exception {
+    	setCustCaps("UAT");
     	setApplicationPath();
         String username = "Test user";
         String password = RandomStringUtils.randomAlphabetic(10);
