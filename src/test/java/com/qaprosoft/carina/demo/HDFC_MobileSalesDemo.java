@@ -5,18 +5,24 @@ import com.qaprosoft.carina.core.foundation.utils.Configuration;
 import com.qaprosoft.carina.core.foundation.utils.R;
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType.Type;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.MobileSalesLoginPageBase;
+import com.ssts.pcloudy.Connector;
+import com.ssts.pcloudy.dto.file.PDriveFileDTO;
+import com.ssts.pcloudy.exception.ConnectError;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
 public class HDFC_MobileSalesDemo extends AbstractTest {
-
+	public Connector con = new Connector("https://qkm1.qualitykiosk.com/");
+	
 	public void setCustCaps(String jenkinsJobEnvironment) throws Exception{
 		String propFile = propertiesFile(jenkinsJobEnvironment);
 		
@@ -56,6 +62,21 @@ public class HDFC_MobileSalesDemo extends AbstractTest {
 			propName = "Samsung_Galaxy_Note_8.properties";
 		}
 		return propName;
+	}
+	
+	@BeforeTest
+	public void uploadAPK(){
+		try {
+			String authToken = con.authenticateUser("", "");
+			File appFile = new File("");
+			PDriveFileDTO uploadedApp = con.uploadApp(authToken, appFile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ConnectError e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
     @Test(testName="testMobileSalesDiary")
