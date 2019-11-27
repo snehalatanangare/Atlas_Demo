@@ -16,6 +16,7 @@ import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.Configuration;
 import com.qaprosoft.carina.core.foundation.utils.R;
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType.Type;
+import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.CarinaDescriptionPageBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.LoginPageBase;
@@ -61,7 +62,7 @@ public class MobileSampleTest extends AbstractTest {
 			propName = "Samsung_Galaxy_J7_Prime.properties";
 		}
 		else{
-			propName = "Samsung_Galaxy_Note_8.properties";
+			propName = "Samsung_Galaxy_J8.properties";
 		}
 		return propName;
 	}
