@@ -8,16 +8,12 @@ import java.util.Properties;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.Configuration;
 import com.qaprosoft.carina.core.foundation.utils.R;
-import com.qaprosoft.carina.core.foundation.utils.android.IAndroidUtils;
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType.Type;
-import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.CarinaDescriptionPageBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.LoginPageBase;
@@ -57,10 +53,10 @@ public class MobileSampleTest extends AbstractTest {
 		String propName = null;
 
 		if(jenkinsJobEnvironment.equals("DEV")){
-			propName = "Samsung_Galaxy_J5_Prime.properties";
+			propName = "OnePlus7.properties";
 		}
 		else if(jenkinsJobEnvironment.equals("QA")){
-			propName = "Samsung_Galaxy_J7_Prime.properties";
+			propName = "OnePlus7.properties";
 		}
 		else{
 			propName = "OnePlus7.properties";
