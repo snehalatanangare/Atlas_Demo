@@ -56,7 +56,7 @@ public class HDFC_MobileSalesDemo extends AbstractTest {
 			propName = "Samsung_Galaxy_J7_Prime.properties";
 		}
 		else{
-			propName = "Samsung_Galaxy_Note_8.properties";
+			propName = "OnePlus7.properties";
 		}
 		return propName;
 	}
