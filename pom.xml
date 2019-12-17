@@ -65,6 +65,11 @@
 			<artifactId>postgresql</artifactId>
 			<version>42.2.6</version>
 		</dependency>
+		<dependency>
+			<groupId>pCloudy-java-connector</groupId>
+			<artifactId>pCloudy-java-connector</artifactId>
+			<version>11.0.3</version>
+		</dependency>
 	</dependencies>
 
 	<build>
