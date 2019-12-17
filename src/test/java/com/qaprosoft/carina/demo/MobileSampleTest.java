@@ -53,13 +53,13 @@ public class MobileSampleTest extends AbstractTest {
 		String propName = null;
 
 		if(jenkinsJobEnvironment.equals("DEV")){
-			propName = "OnePlus7.properties";
+			propName = "Samsung_Galaxy_Note_8.properties";
 		}
 		else if(jenkinsJobEnvironment.equals("QA")){
-			propName = "OnePlus7.properties";
+			propName = "Samsung_Galaxy_Note_8.properties";
 		}
 		else{
-			propName = "OnePlus7.properties";
+			propName = "Samsung_Galaxy_Note_8.properties";
 		}
 		return propName;
 	}
