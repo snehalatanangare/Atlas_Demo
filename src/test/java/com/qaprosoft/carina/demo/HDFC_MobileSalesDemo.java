@@ -8,12 +8,10 @@ import com.qaprosoft.carina.demo.mobile.gui.pages.common.MobileSalesLoginPageBas
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 

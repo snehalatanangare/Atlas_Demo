@@ -29,7 +29,6 @@
 
 	<test name="Mobile test">
 		<classes>
-			<class name="com.qk.m1cloud.UploadAPK" />
 			<class name="com.qaprosoft.carina.demo.MobileSampleTest" />
 		</classes>
 	</test>

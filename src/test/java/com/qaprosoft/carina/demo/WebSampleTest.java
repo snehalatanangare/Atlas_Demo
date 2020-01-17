@@ -72,7 +72,7 @@ public class WebSampleTest extends AbstractTest {
     }
 
 
-    @Test(description = "JIRA#AUTO-0009")
+   /* @Test(description = "JIRA#AUTO-0009")
     @MethodOwner(owner = "qpsdemo")
     @TestPriority(Priority.P1)
     @TestTag(name = "area test", value = "web")
@@ -110,6 +110,6 @@ public class WebSampleTest extends AbstractTest {
             System.out.println(n.readTitle());
             Assert.assertTrue(StringUtils.containsIgnoreCase(n.readTitle(), searchQ), "Invalid search results!");
         }
-    }
+    }*/
 
 }
