@@ -28,17 +28,24 @@
 	<parameter name="jenkinsJobEnvironment" value="stageName" /> -->
 
 	<test name="Mobile test 1">
-	<parameter name="deviceName" value="Samsung_Galaxy_J4_Plus.properties"></parameter>
+	<parameter name="deviceName" value=""></parameter>
 		<classes>
 			<class name="com.qaprosoft.carina.demo.MobileSampleTest" />
 		</classes>
 	</test>
 	
 	<test name="Mobile test 2">
-	<parameter name="deviceName" value="OnePlus7.properties"></parameter>
+	<parameter name="deviceName" value=""></parameter>
 		<classes>
-			<class name="com.qaprosoft.carina.demo.HDFC_MobileSalesDemo" />
+			<class name="com.qaprosoft.carina.demo.MobileSampleTest" />
 		</classes>
 	</test>
 	
+	<test name="Mobile test 3">
+	<parameter name="deviceName" value=""></parameter>
+		<classes>
+			<class name="com.qaprosoft.carina.demo.MobileSampleTest" />
+		</classes>
+	</test>
+
 </suite>

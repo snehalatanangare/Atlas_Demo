@@ -8,6 +8,8 @@ import java.util.Properties;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
@@ -18,6 +20,7 @@ import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.CarinaDescriptionPageBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.LoginPageBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.WelcomePageBase;
+import com.qk.m1cloud.api.POSTUploadAPKMethod;
 
 
 
@@ -64,12 +67,17 @@ public class MobileSampleTest extends AbstractTest {
 		return propName;
 	}
 	
+	/*@BeforeTest
+	public void uploadAPK(){
+		POSTUploadAPKMethod upload = new POSTUploadAPKMethod();
+				upload.callAPI();
+	}*/
+	
     @Test(description = "JIRA#DEMO-0011")
     @MethodOwner(owner = "qpsdemo")
-    //@Parameters(value={"stageName"})
-    public void testLoginUser() throws Exception {
-    	setCustCaps("UAT");
-    	setApplicationPath();
+    @Parameters(value={"deviceName"})
+    public void testLoginUser(String deviceName) throws Exception {
+    	setCustCaps(deviceName);
         String username = "Test user";
         String password = RandomStringUtils.randomAlphabetic(10);
         WelcomePageBase welcomePage = initPage(getDriver(), WelcomePageBase.class);
@@ -128,15 +136,4 @@ public class MobileSampleTest extends AbstractTest {
         Assert.assertTrue(uiElements.isOthersRadioButtonSelected(), "Others radio button was not selected!");
     }*/
 
-    private void setApplicationPath() {
-		String pathToApp;
-		String iosPath = "src/main/resources/carinademoexample.zip";
-		String androidPath = "src/main/resources/carinademoexample.apk";
-		if (Type.ANDROID_PHONE.getFamily().equalsIgnoreCase(R.CONFIG.get("capabilities.platformName")))
-			pathToApp = androidPath;
-		else 
-			pathToApp = iosPath;
-		File file = new File(pathToApp);
-		Configuration.setMobileApp(file.getAbsolutePath());
-	}
 }

@@ -12,11 +12,11 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 
 public class HDFC_MobileSalesDemo extends AbstractTest {
-	//public Connector con = new Connector("https://qkm1.qualitykiosk.com/");
 	
 	public void setCustCaps(String jenkinsJobEnvironment) throws Exception{
 		String propFile = propertiesFile(jenkinsJobEnvironment);
@@ -60,10 +60,9 @@ public class HDFC_MobileSalesDemo extends AbstractTest {
 	}
 	
     @Test(testName="testMobileSalesDiary")
-   // @Parameters(value={"stageName"})
-    public void testMobileSalesDiary() throws Exception {
-    	setCustCaps("UAT");
-    	setApplicationPath();
+    @Parameters(value={"deviceName"})
+    public void testMobileSalesDiary(String deviceName) throws Exception {
+    	setCustCaps(deviceName);
     	MobileSalesLoginPageBase mobileD = initPage(getDriver(), MobileSalesLoginPageBase.class);
     	mobileD.login("12306","Hdfc@123");
     	mobileD.homePage();

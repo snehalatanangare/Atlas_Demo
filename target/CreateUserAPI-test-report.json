@@ -1,0 +1,86 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 6,
+        "name": "Verify user creation",
+        "description": "",
+        "id": "create-user-details;verify-user-creation",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 616742198,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Post endpoint given",
+            "match": {
+              "location": "CreateUserAPIStepdef.startMethod()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 8684468,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Enter Username and Job",
+            "match": {
+              "location": "CreateUserAPIStepdef.enterdetails()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2248625928,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "Post the api",
+            "match": {
+              "location": "CreateUserAPIStepdef.postAPI()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2603182,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "Get response",
+            "match": {
+              "location": "CreateUserAPIStepdef.getResponseTime()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 5,
+            "name": "@demo"
+          },
+          {
+            "line": 5,
+            "name": "@Dev"
+          }
+        ]
+      }
+    ],
+    "name": "Create User Details",
+    "description": "",
+    "id": "create-user-details",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/CreateUserAPI.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@APITest"
+      }
+    ]
+  }
+]
