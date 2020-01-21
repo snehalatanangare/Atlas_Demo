@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Carina Demo Tests - Mobile Sample (Android)]" parallel="methods" data-provider-thread-count="1">
+  <parameter name="jenkinsJobCreation" value="true"/>
+  <parameter name="jenkinsJobType" value="android"/>
+  <parameter name="jenkinsMobileDefaultPool" value="ANY"/>
+  <parameter name="jenkinsJobExecutionMode" value="continue"/>
+  <parameter name="suiteOwner" value="qpsdemo"/>
+  <parameter name="jenkinsPipelineEnvironments" value="DEMO"/>
+  <parameter name="auto_screenshot" value="false"/>
+  <parameter name="jenkinsJobEnvironment" value="stageName"/>
+  <parameter name="jenkinsJobExecutionOrder" value="1"/>
+  <parameter name="jenkinsJobName" value="Mobile-Android-Demo-Test"/>
+  <parameter name="jenkinsEmail" value="demo@qaprosoft.com"/>
+  <parameter name="jenkinsEnvironments" value="DEMO"/>
+  <parameter name="stringParam::capabilities.app::path to carina demo mobile application on the appium server host" value="/opt/apk/carinademoexample.apk"/>
+  <parameter name="jenkinsDefaultThreadCount" value="1"/>
+  <parameter name="zafira_project" value="UNKNOWN"/>
+  <test thread-count="1" name="Mobile test(failed)" parallel="methods">
+    <classes>
+      <class name="com.qaprosoft.carina.demo.MobileSampleTest">
+        <methods>
+          <include name="testLoginUser"/>
+        </methods>
+      </class> <!-- com.qaprosoft.carina.demo.MobileSampleTest -->
+    </classes>
+  </test> <!-- Mobile test(failed) -->
+</suite> <!-- Failed suite [Carina Demo Tests - Mobile Sample (Android)] -->

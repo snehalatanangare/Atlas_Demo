@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [End to End Carina API Test]" parallel="tests" data-provider-thread-count="1">
+  <parameter name="suiteOwner" value="qpsdemo"/>
+  <parameter name="zafira_project" value="CarinaTraining"/>
+  <listeners>
+    <listener class-name="com.qaprosoft.zafira.listener.ZafiraListener"/>
+  </listeners>
+  <test thread-count="5" name="E2E API Test(failed)" parallel="tests">
+    <classes>
+      <class name="com.qaprosoft.carina.demo.ApplicationIssuanceRenewal">
+        <methods>
+          <include name="Application_proposal"/>
+        </methods>
+      </class> <!-- com.qaprosoft.carina.demo.ApplicationIssuanceRenewal -->
+    </classes>
+  </test> <!-- E2E API Test(failed) -->
+</suite> <!-- Failed suite [End to End Carina API Test] -->

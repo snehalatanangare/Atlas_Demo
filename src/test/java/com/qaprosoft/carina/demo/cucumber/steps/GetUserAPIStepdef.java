@@ -6,7 +6,7 @@ import com.qaprosoft.carina.core.foundation.cucumber.CucumberRunner;
 import com.qaprosoft.carina.core.foundation.utils.R;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.QtracHomePageBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.QtracLoginPageBase;
-import com.qaprosoft.carina.demo.utils.MobileContextUtils;
+import com.qaprosoft.carina.demo.utils.M1CloudActivities;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -20,7 +20,7 @@ public class GetUserAPIStepdef extends CucumberRunner {
 	@Given("^Get endpoint given$")
 	public void LoginPage() throws Exception {
 		System.out.println("Appliction launched");
-		MobileContextUtils mobile = new MobileContextUtils();
+		M1CloudActivities mobile = new M1CloudActivities();
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities = mobile.setCapabilities("Samsung_Galaxy_J4_Plus.properties");
 		//getDriver("DEFAULT", capabilities, R.CONFIG.get("selenium_host"));
