@@ -1,9 +1,14 @@
 package com.qaprosoft.carina.demo.cucumber.steps;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import com.jayway.restassured.response.Response;
 import com.qaprosoft.carina.core.foundation.cucumber.CucumberRunner;
 import com.qaprosoft.carina.core.foundation.utils.R;
+import com.qaprosoft.carina.demo.api.PostUserCreationMethod;
+import com.qaprosoft.carina.demo.api.PostUserMethod;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.QtracHomePageBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.QtracLoginPageBase;
 import com.qaprosoft.carina.demo.utils.M1CloudActivities;
@@ -15,40 +20,29 @@ import cucumber.api.java.en.When;
 
 public class CreateUserAPIStepdef extends CucumberRunner {
 
-	QtracLoginPageBase Login = null;
-	QtracHomePageBase Home = null;
+	PostUserCreationMethod user = null;
+	Response rs = null;
 
 	@Given("^Post endpoint given$")
-	public void LoginPage() throws Exception {
-		System.out.println("Appliction launched");
-		M1CloudActivities mobile = new M1CloudActivities();
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities = mobile.setCapabilities("Samsung_Galaxy_J4_Plus.properties");
-		//getDriver("DEFAULT", capabilities, R.CONFIG.get("selenium_host"));
-		Login = initPage(getDriver("DEFAULT", capabilities, R.CONFIG.get("selenium_host")), QtracLoginPageBase.class);
+	public void startMethod() throws Exception {
+		user = new PostUserCreationMethod();
 	}
 
 	@When("^Enter Username and Job$")
 	public void enterdetails() {
-		System.out.println("test start");
-		Login.clickonSignin();
-		Login.login("testqk", "Quality@123");
+		user.addParameter("name", "sample");
+		user.addParameter("job", "test");
 	}
 
 	@Then("^Post the api$")
-	public void ClickOnLoginBtn() {
-		Login.clickonLoginBtn();
+	public void postAPI() {
+		rs = user.callAPI();
 	}
 
-	@Then("^Get response$")
-	public void clickonspeedometerdashboard() {
-		Home = initPage(Login.getDriver(), QtracHomePageBase.class);
-		Home.clickSpeedometerDashbord();
-	}
-
-	@And("^Get user ID$")
-	public void clickonPagebucketdashboard() {
-		Home.clickPageBucketDashborad();
+	@And("^Get response$")
+	public void getResponseTime() {
+		long rsTime = rs.timeIn(TimeUnit.MILLISECONDS);
+		System.out.println("Response time: " + rsTime);
 	}
 
 }

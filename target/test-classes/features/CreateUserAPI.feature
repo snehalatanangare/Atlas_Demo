@@ -7,5 +7,4 @@ Feature: Create User Details
      Given Post endpoint given
     When Enter Username and Job
     Then Post the api
-    Then Get response
-    And Get user ID
+    And Get response

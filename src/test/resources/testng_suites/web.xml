@@ -8,7 +8,7 @@
 	</listeners>
 	
 	<parameter name="suiteOwner" value="qpsdemo"/>
-	<parameter name="zafira_project" value="UNKNOWN"/>
+	<parameter name="zafira_project" value="CarinaTraining"/>
 	<!-- <parameter name="jenkinsJobCreation" value="true"/>
 	<parameter name="jenkinsJobName" value="Web-Demo-Test"/>
 	<parameter name="jenkinsJobType" value="web"/>

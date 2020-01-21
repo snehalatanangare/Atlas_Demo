@@ -45,7 +45,7 @@ import com.qaprosoft.carina.demo.gui.pages.NewsPage;
  */
 public class WebSampleTest extends AbstractTest {
     @Test(dataProvider = "SingleDataProvider", description = "JIRA#AUTO-0008")
-    @MethodOwner(owner = "qpsdemo")
+    @MethodOwner(owner = "admin")
     @TestPriority(Priority.P3)
     @TestTag(name = "area test", value = "data provider")
     @TestTag(name = "specialization", value = "xlsx")
@@ -72,7 +72,7 @@ public class WebSampleTest extends AbstractTest {
     }
 
 
-   /* @Test(description = "JIRA#AUTO-0009")
+    @Test(description = "JIRA#AUTO-0009")
     @MethodOwner(owner = "qpsdemo")
     @TestPriority(Priority.P1)
     @TestTag(name = "area test", value = "web")
@@ -110,6 +110,6 @@ public class WebSampleTest extends AbstractTest {
             System.out.println(n.readTitle());
             Assert.assertTrue(StringUtils.containsIgnoreCase(n.readTitle(), searchQ), "Invalid search results!");
         }
-    }*/
+    }
 
 }
