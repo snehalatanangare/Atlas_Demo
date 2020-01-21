@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Carina Demo Tests - Mobile Sample (Android)" verbose="1"
+<suite name="Carina Demo Tests - Mobile Sample (Android)_Parallel" verbose="1"
 	skipfailedinvocationcounts="false" junit="false" parallel="tests"
 	data-provider-thread-count="1" annotations="JDK">
 
@@ -35,7 +35,7 @@
 	</test>
 	
 	<test name="Mobile test 2">
-	<parameter name="deviceName" value="OnePlus7.properties"></parameter>
+	<parameter name="deviceName" value="Samsung_Galaxy_J5_Prime.properties"></parameter>
 		<classes>
 			<class name="com.qaprosoft.carina.demo.HDFC_MobileSalesDemo" />
 		</classes>

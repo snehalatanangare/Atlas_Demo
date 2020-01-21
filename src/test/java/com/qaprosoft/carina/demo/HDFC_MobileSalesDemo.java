@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.Random;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Parameters;
@@ -19,9 +20,9 @@ import org.testng.annotations.Test;
 public class HDFC_MobileSalesDemo extends AbstractTest {
 	
 	public void setCustCaps(String jenkinsJobEnvironment) throws Exception{
-		String propFile = propertiesFile(jenkinsJobEnvironment);
+		//String propFile = propertiesFile(jenkinsJobEnvironment);
 		
-		String path = "src/main/resources/m1Cloud/android/"+propFile;
+		String path = "src/main/resources/m1Cloud/android/"+jenkinsJobEnvironment;
 		Properties prop = new Properties();
 		InputStream input = new FileInputStream(path);
 		prop.load(input);
@@ -38,6 +39,7 @@ public class HDFC_MobileSalesDemo extends AbstractTest {
 		capabilities.setCapability("appActivity",prop.getProperty("appActivity"));
 		capabilities.setCapability("appPackage",prop.getProperty("appPackage"));
 		capabilities.setCapability("autoGrantPermissions", true);
+		capabilities.setCapability("systemPort", new Random().nextInt(100)+1024);
 		R.CONFIG.getProperties().setProperty("deviceName", prop.getProperty("Capability_DeviceFullName"));
 		
 		getDriver("default", capabilities, R.CONFIG.get("selenium_host"));

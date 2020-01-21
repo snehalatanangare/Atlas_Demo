@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.Random;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -28,9 +29,9 @@ public class MobileSampleTest extends AbstractTest {
 
 	//@BeforeMethod
 	public void setCustCaps(String jenkinsJobEnvironment) throws Exception{
-		String propFile = propertiesFile(jenkinsJobEnvironment);
+	//	String propFile = propertiesFile(jenkinsJobEnvironment);
 		
-		String path = "src/main/resources/m1Cloud/android/"+propFile;
+		String path = "src/main/resources/m1Cloud/android/"+jenkinsJobEnvironment;
 		Properties prop = new Properties();
 		InputStream input = new FileInputStream(path);
 		prop.load(input);
@@ -46,6 +47,7 @@ public class MobileSampleTest extends AbstractTest {
 		capabilities.setCapability("automationName",prop.getProperty("automationName"));
 		capabilities.setCapability("appActivity",prop.getProperty("appActivity"));
 		capabilities.setCapability("appPackage",prop.getProperty("appPackage"));
+		capabilities.setCapability("systemPort", new Random().nextInt(100)+1024);
 		R.CONFIG.getProperties().setProperty("deviceName", prop.getProperty("Capability_DeviceFullName"));
 		
 		getDriver("default", capabilities, R.CONFIG.get("selenium_host"));
