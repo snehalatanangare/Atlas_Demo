@@ -20,7 +20,7 @@ import cucumber.api.CucumberOptions;
                 "junit:target/cucumber-core-test-report.xml"}
         )
 
-public class QtracCucumberTest extends CucumberBaseTest {/*
+public class QtracCucumberTest extends CucumberBaseTest {
 	@BeforeTest
 	//@Parameters({"DeviceName"})
 	public void setCustCaps() throws Exception{
@@ -28,4 +28,4 @@ public class QtracCucumberTest extends CucumberBaseTest {/*
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities = mobile.setCapabilities("Samsung_Galaxy_J4_Plus.properties");
 		getDriver("DEFAULT", capabilities, R.CONFIG.get("selenium_host"));
-	}*/}
+	}}
