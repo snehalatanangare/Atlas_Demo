@@ -1,0 +1,5 @@
+[2020-01-21 04:20:07] [CucumberRunner.java] [1] [INFO] In  @AfterClass tearDownClass
+[2020-01-21 04:20:07] [CucumberRunner.java] [1] [INFO] Report json: CreateUserAPI-test-report.json
+[2020-01-21 04:20:07] [CucumberRunner.java] [1] [INFO] Report json: cucumber-core-test-report.json
+[2020-01-21 04:20:08] [IMessager.java] [1] [INFO] INFO: '**************** Test execution summary ****************'.
+[2020-01-21 04:20:08] [IMessager.java] [1] [INFO] RESULT #1: TEST [Default test - feature] FAIL [screenshots=file://E:\Nikita_workspace\Atlas_Demo\.\reports\qa\1579603741553/d7b60733-7810-4453-97f9-1fec50ce4e7e/report.html | log=file://E:\Nikita_workspace\Atlas_Demo\.\reports\qa\1579603741553/d7b60733-7810-4453-97f9-1fec50ce4e7e/test.log]

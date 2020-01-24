@@ -1,0 +1,2 @@
+[2020-01-21 05:00:54] [IMessager.java] [55] [INFO]  TEST [E2E API Test [Test_Cases=TC005] - Proposal_Submission (InvCount=0003)] STARTED at [17:00:54 2020-01-21]
+[2020-01-21 05:01:01] [IMessager.java] [55] [INFO]  TEST [E2E API Test [Test_Cases=TC005] - Proposal_Submission (InvCount=0003)] PASSED at [17:01:01 2020-01-21]
