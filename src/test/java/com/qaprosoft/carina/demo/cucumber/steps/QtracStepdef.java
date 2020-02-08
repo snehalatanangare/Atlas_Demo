@@ -20,11 +20,15 @@ public class QtracStepdef extends CucumberRunner {
 
 	@Given("^Open the browser and launch the application$")
 	public void LoginPage() throws Exception {
-		System.out.println("Appliction launched");
+		/*System.out.println("Appliction launched");
 		M1CloudActivities mobile = new M1CloudActivities();
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities = mobile.setCapabilities("Samsung_Galaxy_J4_Plus.properties");
+		capabilities = mobile.setCapabilities("Samsung_Galaxy_J4_Plus.properties");*/
+		
 		//getDriver("DEFAULT", capabilities, R.CONFIG.get("selenium_host"));
+		
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities = R.CONFIG.get("capabilities");
 		Login = initPage(getDriver("DEFAULT", capabilities, R.CONFIG.get("selenium_host")), QtracLoginPageBase.class);
 	}
 
