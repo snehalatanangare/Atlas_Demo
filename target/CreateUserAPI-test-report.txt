@@ -1,9 +1,0 @@
-@APITest
-Feature: Create User Details
-
-  @demo @Dev
-  Scenario: Verify user creation [90m# src/test/resources/features/CreateUserAPI.feature:6[0m
-    [32mGiven [0m[32mPost endpoint given[0m    [90m# CreateUserAPIStepdef.startMethod()[0m
-    [32mWhen [0m[32mEnter Username and Job[0m  [90m# CreateUserAPIStepdef.enterdetails()[0m
-    [32mThen [0m[32mPost the api[0m            [90m# CreateUserAPIStepdef.postAPI()[0m
-    [32mAnd [0m[32mGet response[0m             [90m# CreateUserAPIStepdef.getResponseTime()[0m

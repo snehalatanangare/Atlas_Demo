@@ -149,13 +149,13 @@
 			<version>3.9</version>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>compas.qualitykiosk.selenium_browser</groupId>
 			<artifactId>Performance</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
 			<systemPath>${project.basedir}/lib/Performance-1.0.jar</systemPath>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 	<build>
@@ -206,7 +206,7 @@
 				</configuration>
 			</plugin>
 			
-			<plugin>
+			<!-- <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-install-plugin</artifactId>
             <version>2.5.2</version>
@@ -228,7 +228,7 @@
                     </goals>
                 </execution>
             </executions>
-        </plugin>
+        </plugin> -->
 		</plugins>
 	</build>
 </project>
